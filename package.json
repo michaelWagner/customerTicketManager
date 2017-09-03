@@ -1,0 +1,56 @@
+{
+  "name": "customerTicketManager",
+  "version": "0.0.1",
+  "private": false,
+  "author": "Mike Wagner",
+  "description": "Application for managing customer's tickets",
+  "main": "bin/www",
+  "scripts": {
+    "start": "node bin/www"
+  },
+  "engines": {
+    "node": "5.2.0",
+    "npm": "3.10.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelWagner/customerTicketManager.git"
+  },
+  "dependencies": {
+    "angular-storage": "0.0.15",
+    "async": "^2.3.0",
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "moment": "^2.18.1",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "debug": "^2.2.0",
+    "grunt": "^1.0.1",
+    "grunt-develop": "^0.4.0",
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-contrib-less": "~1.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-htmlmin": "~2.0.0",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-compress": "~1.3.0",
+    "grunt-contrib-cssmin": "~1.0.2",
+    "grunt-contrib-requirejs": "~1.0.0",
+    "grunt-closurecompiler": "~0.9.9",
+    "grunt-angular-templates": "~1.1.0",
+    "request": "^2.60.0",
+    "time-grunt": "^1.2.1",
+    "load-grunt-tasks": "^3.2.0",
+    "mocha": "^3.0.2"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/michaelWagner/customerTicketManager/issues"
+  },
+  "homepage": "https://github.com/michaelWagner/customerTicketManager#readme"
+}
