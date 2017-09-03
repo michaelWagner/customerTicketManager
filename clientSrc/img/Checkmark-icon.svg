@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="9px" viewBox="0 0 12 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Stroke 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M1.70710678,4.79289322 C1.31658249,4.40236893 0.683417511,4.40236893 0.292893219,4.79289322 C-0.0976310729,5.18341751 -0.0976310729,5.81658249 0.292893219,6.20710678 L2.79289322,8.70710678 C3.17393275,9.08814631 3.78837357,9.09873697 4.18231825,8.73105527 L11.6823183,1.73105527 C12.0860689,1.3542213 12.1078892,0.721432426 11.7310553,0.31768175 C11.3542213,-0.0860689263 10.7214324,-0.107889232 10.3176817,0.268944732 L3.52396272,6.60974916 L1.70710678,4.79289322 Z" id="Stroke-1" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

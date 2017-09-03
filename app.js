@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -14,7 +13,6 @@ const app = express();
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
 
-app.use(favicon(__dirname + '/client/content/img/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
