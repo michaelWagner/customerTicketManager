@@ -1,8 +1,19 @@
-﻿@myPattern:"flatly";
-@import "base/bootswatch/@{myPattern}-variables.less";
+﻿//@myPattern:"flatly";
+//@import "base/bootswatch/@{myPattern}-variables.less";
+html, body{
+    height:100%;
+    width: 100%;
+}
+#ng-app{
+    height:100%;
+    width: 100%;
+    color:#666;
+}
+@import "app/ticketing.less";
+@import "app/newticket.less";
 @import "app/menu.less";
+@import "app/sidemenu.less";
 @import "app/login.less";
-
 @import "app/admin.less";
 @import "app/error.less";
 @import "app/modals.less";

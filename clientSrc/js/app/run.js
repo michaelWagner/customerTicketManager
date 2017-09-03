@@ -1,7 +1,7 @@
 /* Run */
 
-myApp.run(['$rootScope', '$window', '$log', '$location', '$timeout', 'AuthenticationService', 'ErrorHandlingService',
-    function ($rootScope, $window, $log, $location, $timeout,  AuthenticationService, ErrorHandlingService ) {
+myApp.run(['$rootScope', '$window', '$route', '$log', '$location', '$timeout', 'AuthenticationService', 'ErrorHandlingService',
+    function ($rootScope, $window, $route, $log, $location, $timeout,  AuthenticationService, ErrorHandlingService ) {
 
         $rootScope.isWorking = true;
         $rootScope.refId = '';

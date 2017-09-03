@@ -7,6 +7,7 @@ myAppD.directive('menu', ['$location', 'store', 'AuthenticationService',
             scope:true,
             templateUrl:'content/tpl/menu.html',
             link : function(scope, elm, attrs) {
+
             },
             controller: ['$scope', 
                 function($scope){
@@ -16,9 +17,29 @@ myAppD.directive('menu', ['$location', 'store', 'AuthenticationService',
                             store.set('orderDetails', null);
                         }
                         window.location.href = '/#/login';
+                    },
+                    $scope.gotoDestination = function(destination){
+                        $location.path(destination);
                     }
                 }
             ]             
         };
     }
+]);;myAppD.directive('sidemenu', ['$location', 
+function($location) {
+    return {
+        scope:true,
+        templateUrl:'content/tpl/sidemenu.html',
+        link : function(scope, elm, attrs) {
+            scope.gotoDestination = function(destination){
+                $location.path(destination);
+            }
+        },
+        controller: ['$scope', 
+            function($scope){
+
+            }
+        ]        
+    };
+}
 ]);

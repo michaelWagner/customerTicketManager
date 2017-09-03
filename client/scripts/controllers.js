@@ -59,3 +59,19 @@ myAppC.controller('LoginController', ['$scope', '$location', '$rootScope', '$rou
         };
     }
 ]);
+;
+myAppC.controller('NewTicketController', ['$scope', '$location', '$rootScope', '$routeParams', 'AuthenticationService', 'ErrorHandlingService',
+function($scope, $location, $rootScope, $routeParams, AuthenticationService, ErrorHandlingService) {
+
+}
+]);;
+myAppC.controller('SummaryController', ['$scope', '$location', '$rootScope', '$routeParams', 'AuthenticationService', 'ErrorHandlingService',
+function($scope, $location, $rootScope, $routeParams, AuthenticationService, ErrorHandlingService) {
+
+}
+]);;;
+myAppC.controller('TicketReportsController', ['$scope', '$location', '$rootScope', '$routeParams', 'AuthenticationService', 'ErrorHandlingService',
+function($scope, $location, $rootScope, $routeParams, AuthenticationService, ErrorHandlingService) {
+
+}
+]);

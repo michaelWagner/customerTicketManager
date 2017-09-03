@@ -1,4 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:300,400,700');
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+#ng-app {
+  height: 100%;
+  width: 100%;
+  color: #666;
+}
+.ticketing {
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  background-color: #EBEEF2;
+}
+.ticketing .toprow {
+  height: 100%;
+}
+.ticketing .toprow .topcol {
+  height: 100%;
+  padding: 0px;
+  width: 12%;
+}
+@media (max-width: 959px) {
+  .ticketing {
+    margin-top: 40px;
+  }
+}
+@media (min-width: 960px) {
+  menu {
+    display: none;
+  }
+}
+@media (max-width: 959px) {
+  sidemenu {
+    display: none;
+  }
+}
+.newticket #newticket-frame {
+  padding: 30px;
+}
+.newticket #newticket-frame #new-ticket-title {
+  font-size: 45px;
+  font-family: 'Roboto Condensed';
+  color: #6D8DB4;
+  font-weight: 400;
+  margin-left: 80px;
+}
+.newticket #newticket-frame #new-ticket-title #slim {
+  font-weight: 300;
+}
+.newticket #newticket-frame .newform-1 {
+  background-color: white;
+  padding: 60px 30px;
+  margin-top: 30px;
+}
+.newticket #newticket-frame .newform-2 {
+  background-color: #F5F8FB;
+  padding: 60px 30px;
+}
+.newticket #newticket-frame .btn.save-ticket {
+  background-color: #0D8A71;
+  color: white;
+  font-family: 'Roboto Condensed';
+  border-radius: 0px;
+  margin-top: 30px;
+}
 .navbar-default {
   background-color: #50aaed;
   border-color: #266CA0;
@@ -54,116 +123,84 @@
 .navbar-default .navbar-toggle:focus {
   background-color: #266CA0;
 }
-/*
-menu {
-     margin-top:0px;
-    -webkit-padding-start: 0px;
-    //color:white;
+sidemenu {
+  height: 100%;
+  width: 100%;
 }
-nav.caosmenu.navbar-default{
-    background-color:rgba(0, 0, 0, 0.0);
-    border-color:rgba(0, 0, 0, 0.0);
+sidemenu .sidemenu {
+  height: 100%;
+  width: 100%;
+  padding-top: 40px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2d4b6d+0,0d8a71+100 */
+  background: #2d4b6d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #2d4b6d 0%, #0d8a71 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #2d4b6d 0%, #0d8a71 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #2d4b6d 0%, #0d8a71 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d4b6d', endColorstr='#0d8a71', GradientType=0);
+  /* IE6-9 */
 }
-.navbar-default .navbar-brand{
-    color:#333;
+sidemenu .sidemenu .menuframe {
+  height: 100%;
 }
-.navbar-default .navbar-brand:hover{
-    color:#fff;
-    background-color: rgba(0, 0, 0, 0.5);
+sidemenu .sidemenu .menuframe img {
+  display: block;
+  margin: auto;
+  width: 135px;
+  margin-bottom: 20px;
 }
-.navbar-default .navbar-nav > li > a {
-    color:#333;
-    
+sidemenu .sidemenu .menuframe a {
+  color: #A9BAC3;
+  display: block;
+  text-align: center;
+  padding: 20px 60px;
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
-    color:#fff;
-    background-color: rgba(0, 0, 0, 0.5);
+sidemenu .sidemenu .menuframe a:hover,
+sidemenu .sidemenu .menuframe a:focus {
+  color: white;
+  text-decoration: underline;
+  background: #A9BAC3;
 }
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
-     color:#fff;   
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0d8a71+0,2d4b6d+100 */
+.login {
+  color: #6D8DB4;
+  background-image: url('/content/img/Login-BG.jpg');
+  background-size: cover;
+  /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* optional, center the image */
+  width: 100%;
+  min-height: 1000px;
 }
-.navbar-default .navbar-nav > li > a.dropdown-toggle:link {
-    //padding:0px 60px;
-    color:white;
+.login img {
+  height: 80px;
 }
-.navbar-default .navbar-nav > li > a.dropdown-toggle:visited {
-    //padding:0px 60px;
-    color:white;
-}
-.navbar-default .navbar-nav > li > a.dropdown-toggle:hover{
-    //padding:0px 60px;
-    color:white;
-}
-.navbar-default .navbar-nav > li> a.dropdown-toggle:active {
-    //padding:0px 60px;
-    color:white;
-}
-/*
-nav.navbar{
-    color:white;
-    background-color: #3d3d3d;
-
-
-    .navbar-brand{
-        color:white;
-        /*
-        margin-top:5px;
-        img.logo {
-            margin-top: -10px;
-            height: 40px;
-            display: inline;
-            margin-right:10px;
-            width:30px;
-            height:30px;   
-            
-        }
-        
-    }
-    
-    @media (min-width: 960px) {//small
-        .sideitem{
-            display:none
-        }
-    }
-    ul.nav.navbar-nav{
-        margin-top:20px;
-    }
-    
-}
-*/
-.login .form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.login .form-signin .form-signin-heading,
-.login .form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.login .form-signin .checkbox {
+.login label {
   font-weight: normal;
+  margin-top: 20px;
 }
-.login .form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
+.login button {
+  border-radius: 0;
+  background-color: #6D8DB4;
+  color: #fff;
+  margin-top: 40px;
+  padding: 20px 60px;
 }
-.login .form-signin .form-control:focus {
-  z-index: 2;
+.login input {
+  font-size: 20px;
+  padding: 20px;
 }
-.login .form-signin input[type="email"] {
-  margin-bottom: 25px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+.login #logo {
+  margin-bottom: 30px;
+  display: block;
 }
-.login .form-signin input[type="password"] {
-  margin-bottom: 25px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.login .form-signin {
+  max-width: 400px;
+  padding-top: 200px;
 }
 .admin {
   width: 80%;
@@ -172,293 +209,6 @@ nav.navbar{
 }
 .error.well {
   margin-top: 100px;
-}
-.home {
-  height: 1000px;
-  font-family: 'Montserrat';
-}
-.home #skydiver {
-  height: 1000px;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center top;
-}
-@media only screen and (max-device-width: 768px) {
-  .home #skydiver {
-    background-image: url("/content/img/lipstickskydiver-72-1920-50.jpg");
-    background-size: 300% auto;
-    height: 700px;
-  }
-}
-@media only screen and (min-device-width: 769px) and (max-device-width: 1199px) {
-  .home #skydiver {
-    background-image: url("/content/img/lipstickskydiver-72-1920-50.jpg");
-    background-size: 150% auto;
-  }
-}
-@media only screen and (min-device-width: 1200px) {
-  .home #skydiver {
-    background-image: url("/content/img/lipstickskydiver-72-1920-50.jpg");
-    background-size: 100% auto;
-  }
-}
-.home #skydiver .overlay {
-  color: white;
-  position: relative;
-  width: 100%;
-  top: 45%;
-  text-align: center;
-  display: block;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 50px;
-}
-.home #skydiver .overlay h1,
-.home #skydiver .overlay h2,
-.home #skydiver .overlay h3,
-.home #skydiver .overlay h4,
-.home #skydiver .overlay h5 {
-  color: white;
-  letter-spacing: 4px;
-  font-weight: 400;
-}
-.home #skydiver .overlay h1 {
-  font-size: 60px;
-  font-weight: 400;
-}
-.home #skydiver .overlay .overlay-btns {
-  margin-top: 30px;
-}
-.home #skydiver .overlay .overlay-btns button {
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  border: 2px solid white;
-  padding: 10px;
-  margin: 5px;
-  font-size: 20px;
-  width: 300px;
-}
-.home #skydiver .overlay .overlay-btns button a {
-  color: white;
-}
-@media (max-width: 1024px) {
-  .home #skydiver .overlay {
-    top: 30%;
-  }
-}
-@media (max-width: 768px) {
-  .home #skydiver .overlay {
-    top: 35%;
-    height: 350px;
-    padding: 30px 10px;
-  }
-  .home #skydiver .overlay h1 {
-    font-size: 40px;
-    font-weight: 300;
-  }
-  .home #skydiver .overlay h2 {
-    font-size: 20px;
-  }
-  .home #skydiver .overlay .overlay-btns {
-    margin-top: 30px;
-  }
-  .home #skydiver .overlay .overlay-btns button {
-    font-size: 14px;
-    width: 150px;
-  }
-}
-@media (max-width: 320px) {
-  .home #skydiver .overlay {
-    top: 25%;
-  }
-}
-.home #suits {
-  width: 60%;
-  margin: auto;
-  padding: 20px;
-}
-.home #suits h1 {
-  text-align: center;
-  font-weight: 500;
-}
-.home #suits img {
-  margin: auto;
-  display: block;
-  padding: 20px;
-  width: 350px;
-}
-.home #suits p {
-  font-size: 20px;
-}
-.home #suits button {
-  display: block;
-  margin: auto;
-  font-size: 20px;
-  width: 300px;
-  border: 1px solid black;
-  background-color: rgba(0, 0, 0, 0);
-}
-.home #suits .row {
-  margin-bottom: 100px;
-}
-@media (max-width: 768px) {
-  .home #suits {
-    width: 95%;
-  }
-  .home #suits img {
-    width: 300px;
-  }
-  .home #suits a {
-    display: block;
-    margin: auto;
-    font-size: 20px;
-  }
-}
-.home #fearless {
-  background-image: url("/content/img/fearless.jpg");
-  background-position: center top;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  height: 850px;
-  width: 100%;
-}
-@media (max-width: 768px) {
-  .home #fearless {
-    height: 600px;
-    background-size: 300% auto;
-  }
-}
-.home #fearless .shading {
-  height: 850px;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-@media (max-width: 768px) {
-  .home #fearless .shading {
-    height: 600px;
-  }
-}
-.home #fearless .shading .overlay {
-  color: white;
-  position: relative;
-  top: 35%;
-  text-align: center;
-  display: block;
-  padding: 50px;
-}
-.home #fearless .shading .overlay h1,
-.home #fearless .shading .overlay h2,
-.home #fearless .shading .overlay h3,
-.home #fearless .shading .overlay h4,
-.home #fearless .shading .overlay h5 {
-  color: white;
-  letter-spacing: 14px;
-}
-.home #fearless .shading .overlay h1 {
-  font-size: 60px;
-  font-weight: 400;
-}
-@media (max-width: 768px) {
-  .home #fearless .shading .overlay {
-    height: 200px;
-    padding: 20px;
-  }
-  .home #fearless .shading .overlay h1 {
-    font-size: 40px;
-    font-weight: 300;
-  }
-  .home #fearless .shading .overlay h2 {
-    font-size: 20px;
-  }
-}
-.home #testimonials {
-  width: 50%;
-  margin: auto;
-  padding: 20px;
-}
-.home #testimonials img {
-  border-radius: 50%;
-  height: 120px;
-  display: block;
-  margin: auto;
-  padding: 20px;
-}
-.home #testimonials .row {
-  padding: 100px 0px;
-}
-.home #testimonials p {
-  font-size: 20px;
-}
-@media (max-width: 768px) {
-  .home #testimonials {
-    width: 90%;
-  }
-}
-.home #heartskydiving {
-  color: white;
-  background-color: #50aaed;
-  padding: 50px 0px;
-}
-.home #heartskydiving h1,
-.home #heartskydiving h2,
-.home #heartskydiving h3,
-.home #heartskydiving h4,
-.home #heartskydiving h5 {
-  color: white;
-  font-weight: 400;
-}
-.home #heartskydiving h1 {
-  font-size: 45px;
-  font-weight: 600;
-  text-align: center;
-}
-.home #heartskydiving h3 {
-  width: 90%;
-  font-size: 24px;
-  text-align: center;
-  margin: auto;
-  font-weight: 600;
-}
-.home #heartskydiving .heartcontainer {
-  padding: 50px 0px;
-  margin: auto;
-  width: 60%;
-}
-.home #heartskydiving .heartcontainer img {
-  height: 100px;
-  margin: auto;
-  display: block;
-}
-.home #heartskydiving .heartcontainer p {
-  padding: 20px;
-  font-size: 18px;
-  font-weight: 400;
-}
-@media (max-width: 768px) {
-  .home #heartskydiving .heartcontainer {
-    width: 90%;
-  }
-  .home #heartskydiving .heartcontainer h1 {
-    font-size: 40px;
-  }
-}
-.footer {
-  background-color: #f8f8f8;
-  padding: 60px;
-  margin: auto;
-}
-.footer .footer-section {
-  padding-bottom: 30px;
-}
-.footer .social img {
-  width: 60px;
-  height: 60px;
-}
-.footer a {
-  font-size: 18px;
-}
-@media (max-width: 768px) {
-  .footer {
-    padding: 30px;
-  }
 }
 .modal-dialog .utl-dialog {
   padding: 0px 10px;
