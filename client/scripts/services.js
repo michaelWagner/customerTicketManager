@@ -56,8 +56,8 @@ var myAppS = angular.module('myApp.services', []);;
                         method: 'POST',
                         data: { "email":username, "password":password},
                         headers: {
-                            "Content-Type": "application/html",
-                            "Accept":"application/html"
+                            "Content-Type": "application/json",
+                            "Accept":"application/json"
                         }
                     }).then(function(response) {
                             if (response.status === 200) {
