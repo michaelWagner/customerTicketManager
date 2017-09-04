@@ -3,55 +3,18 @@
 var myAppS = angular.module('myApp.services', []);;   
  myAppS.factory('AuthenticationService', ['$rootScope','$http', '$location', 'store', '$q',
     function ($rootScope, $http, $location, store, $q ) {
-        return {
+        return {       
             GetUserStatus : function (){
                 return $q(function(resolve, reject){
-                    resolve(false);
-                    /*
-                    return $http({
-                        url: '/status',
-                        dataType: 'json',
-                        method: 'GET',
-                        data: {},
-                        headers: {
-                            "Content-Type": "application/json",
-                        }
-                    }).then(function(response) {
-                            if (response.status === 200) {
-                                if(response.data != null) {
-                                    store.set('isloggedin', response.data);
-                                    resolve(response.data);
-                                } else {
-                                    // invalid response
-                                    store.set('isloggedin', false);
-                                    reject({'status':'error','message':'Authentication service received a null response'});
-                                }
-                            } else {
-                                // invalid response
-                                store.set('isloggedin', null);
-                                reject({'status':'error','message':'Authentication service received invalid data'});
-                            }
-                        }, function(err) {
-                            // something went wrong
-                            store.set('isloggedin', false);
-                            if(err.status===400){
-                                reject({'status':err.status,'message':err.data.message});                             
-                            } else if(err.status ===401){
-                                reject({'status':err.status,'message':err.data.message});                             
-                            } else if(err.status ===404){
-                                reject({'status':err.status,'message':'file not found'});                             
-                            } else {
-                                reject({'status':err.status,'message':'unknown authentication error'});                             
-                            }
-                        }
-                    );
-                    */
+                    var token = store.get('token')
+                    resolve(token);
+
                 });
-            },            
+            },  
             Login : function(username, password){
                 return $q(function(resolve, reject){
                     return $http({
-                        url: 'https://yellow-jackal-backend.herokuapp.com/api-token-auth',
+                        url: 'https://yellow-jackal-backend.herokuapp.com/api-token-auth/',
                         dataType: 'json',
                         method: 'POST',
                         data: { "email":username, "password":password},
@@ -63,24 +26,22 @@ var myAppS = angular.module('myApp.services', []);;
                             if (response.status === 200) {
                                 if(response.data != null) {
                                     console.log(response.data);
-                                    store.set('user', response.data);
+                                    store.set('token', response.data);
                                     resolve(true);
                                 } else {
                                     // invalid response
-                                    store.set('user', null);
-                                    store.set('isloggedin', false);
+                                    store.set('token', null);
                                     reject({'status':'error','message':'Authentication service received a null response'});
                                 }
                             } else {
                                 // invalid response
-                                store.set('user', null);
-                                store.set('isloggedin', false);
+                                store.set('token', null);
+
                                 reject({'status':'error','message':'Authentication service received invalid data'});
                             }
                         }, function(err) {
                             // something went wrong
-                            store.set('user', null);
-                            store.set('isloggedin', false);
+                            store.set('token', null);
                             if(err.status===400){
                                 reject({'status':err.status,'message':err.data.message});                             
                             } else if(err.status ===401){
@@ -95,53 +56,12 @@ var myAppS = angular.module('myApp.services', []);;
                 });
             },          
             Logout : function(){
-                resolve(true);
-                
-                /*
                 return $q(function(resolve, reject){
-                    return $http({
-                        url: '/logout',
-                        dataType: 'json',
-                        method: 'GET',
-                        headers: {
-                            "Content-Type": "application/json",
-                        }
-                    }).then(function(response) {
-                            if (response.status === 200) {
-                                if(response.data != null) {
-                                    store.set('user', null);                                    
-                                    store.set('isloggedin', false);
-                                    resolve(true);
-                                } else {
-                                    // invalid response
-                                    store.set('user', null);
-                                    store.set('isloggedin', false);
-                                    reject({'status':'error','message':'Authentication service received a null response'});
-                                }
-                            } else {
-                                // invalid response
-                                store.set('user', null);
-                                store.set('isloggedin', false);
-                                reject({'status':'error','message':'Authentication service received invalid data'});
-                            }
+                    store.set('token', null)
+                    resolve(true);
 
-                        }, function(err) {
-                            // something went wrong
-                            store.set('user', null);
-                            store.set('isloggedin', false);
-                            if(err.status===400){
-                                reject({'status':err.status,'message':err.data.message});                             
-                            } else if(err.status ===401){
-                                $location.path('/login');
-                            } else if(err.status ===404){
-                                reject({'status':err.status,'message':'file not found'});                             
-                            } else {
-                                reject({'status':err.status,'message':'unknown authentication error'});                             
-                            }
-                        }
-                    );
-                });
-                */
+                });                
+
             }
         }
     }
@@ -170,146 +90,139 @@ var myAppS = angular.module('myApp.services', []);;
 
         return {
             
-            GetColors : function(){
+            GetSummary : function(){
                 return $q(function(resolve, reject) {
-                    var colors = store.get('colors'); 
-                    if(colors && colors.length > 0){
-                        resolve(colors);
-                    } else {
-                        return $http({
-                            url:      '/json/colors.json',
-                            dataType: 'json',
-                            method:   'GET',
-                            headers:  {
-                                "Content-Type": "application/json"
-                            },
-                            data:null,
-                            }).then(function(response) {
-                                if (typeof response.data === 'object') {
-                                    if(response.data != null) {
-                                        store.set('colors', response.data);
-                                        resolve( response.data);
-                                    } else {
-                                        // invalid response
-                                        reject({'status':500,'message':'GetColors service request response data is null'});
-                                    }
+
+                    var token = store.get('token');
+
+                    return $http({
+                        url:      'https://yellow-jackal-backend.herokuapp.com/api/tickets/summary',
+                        dataType: 'json',
+                        method:   'GET',
+                        headers:  {
+                            "Content-Type": "application/json",
+                            "Accept":"application/json",
+                            "Authorization": "JWT " + token.token 
+                        },
+                        data:null,
+                        }).then(function(response) {
+                            if (typeof response.data === 'object') {
+                                if(response.data != null) {
+                                    store.set('summary', response.data);
+                                    resolve( response.data);
                                 } else {
                                     // invalid response
-                                    reject({'status':500,'message':'GetColors service request response data is not an object'});
+                                    reject({'status':500,'message':'GetColors service request response data is null'});
                                 }
+                            } else {
+                                // invalid response
+                                reject({'status':500,'message':'GetColors service request response data is not an object'});
+                            }
 
-                            }, function(err) {
-                                // something went wrong
-                                if(err.status===400){
-                                    reject({'status':err.status,'message':err.data.message});                             
-                                } else if(err.status ===401){
-                                    $location.path('/login');
-                                } else if(err.status ===404){
-                                    reject({'status':err.status,'message':'file not found'});                             
-                                } else {
-                                    reject({'status':err.status,'message':'unknown error'});                             
-                                }
-                        });
-                    }
+                        }, function(err) {
+                            // something went wrong
+                            if(err.status===400){
+                                reject({'status':err.status,'message':err.data.message});                             
+                            } else if(err.status ===401){
+                                $location.path('/login');
+                            } else if(err.status ===404){
+                                reject({'status':err.status,'message':'file not found'});                             
+                            } else {
+                                reject({'status':err.status,'message':'unknown error'});                             
+                            }
+                    });
+
                 });
             },
-        
-            GetSuit : function(suitstyle){
+            GetTickets : function(){
                 return $q(function(resolve, reject) {
-                    var suit = store.get(suitstyle + '-suit'); 
-                    if(suit && suit.length > 0){
-                        resolve(suit);
-                    } else {
-                        return $http({
-                            url:      '/json/suit-' + suitstyle + '.json',
-                            dataType: 'json',
-                            method:   'GET',
-                            headers:  {
-                                "Content-Type": "application/json"
-                            },
-                            data:null,
-                            }).then(function(response) {
-                                if (typeof response.data === 'object') {
-                                    if(response.data != null) {
-                                        store.set(suitstyle + '-suit', response.data);
-                                        resolve( response.data);
-                                    } else {
-                                        // invalid response
-                                        reject({'status':500,'message':'GetSuit service request response data is null'});
-                                    }
+                    var token = store.get('token');
+                    return $http({
+                        url:      'https://yellow-jackal-backend.herokuapp.com/api/tickets/?page=1&page_size=200',
+                        dataType: 'json',
+                        method:   'GET',
+                        headers:  {
+                            "Content-Type": "application/json",
+                            "Accept":"application/json",
+                            "Authorization": "JWT " + token.token 
+                        },
+                        data:null,
+                        }).then(function(response) {
+                            if (typeof response.data === 'object') {
+                                if(response.data != null) {
+                                    store.set('tickets', response.data);
+                                    resolve( response.data);
                                 } else {
                                     // invalid response
-                                    reject({'status':500,'message':'GetSuit service request response data is not an object'});
+                                    reject({'status':500,'message':'GetColors service request response data is null'});
                                 }
-                            }, function(err) {
-                                console.log("GetSuit service request response error occured", err);
-                                // something went wrong
-                                if(err.status===400){
-                                    reject({'status':err.status,'message':err.data.message});                             
-                                } else if(err.status ===401){
-                                    $location.path('/login');
-                                } else if(err.status ===404){
-                                    reject({'status':err.status,'message':'file not found'});                             
-                                } else {
-                                    reject({'status':err.status,'message':'unknown error'});                             
-                                }
-                        });
-                    }
+                            } else {
+                                // invalid response
+                                reject({'status':500,'message':'GetColors service request response data is not an object'});
+                            }
+
+                        }, function(err) {
+                            // something went wrong
+                            if(err.status===400){
+                                reject({'status':err.status,'message':err.data.message});                             
+                            } else if(err.status ===401){
+                                $location.path('/login');
+                            } else if(err.status ===404){
+                                reject({'status':err.status,'message':'file not found'});                             
+                            } else {
+                                reject({'status':err.status,'message':'unknown error'});                             
+                            }
+                    });
                 });
             },
-            ClearSuit: function(suitstyle){
-
-            },
-            SaveSuit : function(suitstyle, suit){
-                store.set(suitstyle + '-suit', suit);
-            },
-            GetContact: function(){
+            GetTicketDetail : function(id){
                 return $q(function(resolve, reject) {
-                     var contact = store.get('contact');
-                    if(contact && contact.length > 0){
-                        resolve(contact);
-                    } else {
-                        return $http({
-                            url:      '/json/contact.json',
-                            dataType: 'json',
-                            method:   'GET',
-                            headers:  {
-                                "Content-Type": "application/json"
-                            },
-                            data:null,
-                            }).then(function(response) {
-                                if (typeof response.data === 'object') {
-                                    if(response.data != null) {
-                                        store.set('contact', response.data);
-                                        resolve( response.data);
-                                    } else {
-                                        reject({'status':500,'message':'GetContact service request response data is null'});
-                                    }
+                    var token = store.get('token');
+                    return $http({
+                        url:      'https://yellow-jackal-backend.herokuapp.com/api/tickets/' + id + '/',
+                        dataType: 'json',
+                        method:   'GET',
+                        headers:  {
+                            "Content-Type": "application/json",
+                            "Accept":"application/json",
+                            "Authorization": "JWT " + token.token 
+                        },
+                        data:null,
+                        }).then(function(response) {
+                            if (typeof response.data === 'object') {
+                                if(response.data != null) {
+                                    store.set('currentDetail', response.data);
+                                    resolve( response.data);
                                 } else {
-                                    reject({'status':500,'message':'GetContact service request response data is not an object'});
+                                    // invalid response
+                                    reject({'status':500,'message':'GetColors service request response data is null'});
                                 }
-                            }, function(err) {
-                                console.log("GetContact service request response error occured", err);
-                                // something went wrong
-                                if(err.status===400){
-                                    reject({'status':err.status,'message':err.data.message});                             
-                                } else if(err.status ===401){
-                                    $location.path('/login');
-                                } else if(err.status ===404){
-                                    reject({'status':err.status,'message':'file not found'});                             
-                                } else {
-                                    reject({'status':err.status,'message':'unknown error'});                             
-                                }
-                        });
-                    }
-                }); 
+                            } else {
+                                // invalid response
+                                reject({'status':500,'message':'GetColors service request response data is not an object'});
+                            }
+
+                        }, function(err) {
+                            // something went wrong
+                            if(err.status===400){
+                                reject({'status':err.status,'message':err.data.message});                             
+                            } else if(err.status ===401){
+                                $location.path('/login');
+                            } else if(err.status ===404){
+                                reject({'status':err.status,'message':'file not found'});                             
+                            } else {
+                                reject({'status':err.status,'message':'unknown error'});                             
+                            }
+                    });
+                });
             },
-            SaveContact: function(contact){
-                store.set('contact', contact);
+            GetRep : function(id){
+                return $q(function(resolve, reject) {
+                    var token = store.get('token');
+                    resolve('George Jetson');
+    
+                });
             },
-            UpdateSuitElement: function(color, suitelement){
-                console.log(' in UpdateSuitElement color   = ' + color + ' suitelement = ' + suitelement  + ' $scope ' + $scope); 
-            }
         }
     }
 ]);; myAppS.factory('ValidationService', ['$rootScope','$http', '$location',

@@ -5,19 +5,19 @@
             <sidemenu></sidemenu>
         </div>
         <div class="col-xs-12 col-md-10">
-            <div id="newticket-frame">
+            <div class="ticketing-frame">
                 <div class="row">
                     <div class="col-md-8">
-                        <span id="new-ticket-title">Tickets - <span id="slim">NEW TICKET</span></span>
+                        <span class="ticketing-title">Tickets - <span id="slim">NEW TICKET</span></span>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <input type="emai" class="form-control" id="telephone" placeholder="Search for Ticket ID" />
+                            <input type="text" class="form-control" id="telephone" placeholder="Search for Ticket ID" />
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <a href="logout">Logout</a>
-                        First Last
+                            <a class="logout" href="" ng-click="logout()">Logout</a>
+                            First Last
                     </div>
                 </div>
                 <div class="row newform-1">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-xs-12 col-md-3 col-lg-3">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="telephone" placeholder="() - " />
+                            <input type="phone" class="form-control" id="telephone" placeholder="() - " />
                             <label for="telephone">Contact Phone</label>
                         </div>
                     </div>

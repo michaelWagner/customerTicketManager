@@ -4,6 +4,7 @@ var myApp = angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
     'ui.bootstrap',
+    'ui.mask',
     'angular-storage',
     'myApp.filters',
     'myApp.services',

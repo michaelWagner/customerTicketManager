@@ -15,7 +15,7 @@ myApp.run(['$rootScope', '$window', '$route', '$log', '$location', '$timeout', '
                 var getUserStatusPromise = AuthenticationService.GetUserStatus();
                 getUserStatusPromise.then(
                 function (resp) {
-                    var isUserLoggedIn = resp.isLoggedIn;
+                    var isUserLoggedIn = resp;
                     console.log('at route change start. Next.access = ' + JSON.stringify(next.access));
                     console.log('isUserLoggedIn + ' + JSON.stringify(isUserLoggedIn));
                     if (next.access.restricted && !isUserLoggedIn){

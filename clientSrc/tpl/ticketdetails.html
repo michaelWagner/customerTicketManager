@@ -1,0 +1,99 @@
+<div class="ticketing ticketdetails">
+        <menu></menu>
+        <div class="row row-offcanvas row-offcanvas-left toprow">
+            <div class="col-xs-0 col-md-2 sidebar-offcanvas topcol">  
+                <sidemenu></sidemenu>
+            </div>
+            <div class="col-xs-12 col-md-10">
+                <div class="ticketing-frame">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span class="ticketing-title">Tickets - <span id="slim">DETAILS</span></span>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group searchticket">
+                                <input class="form-control" type="text" ng-model="searchitem"  placeholder="Search for Ticket ID" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="search(searchitem)"><i class="glyphicon glyphicon-search"></i></button>
+                                </span>
+                            </div>
+                            <button id="btnNewticket" class="btn btn-lg">New Ticket</button>                            
+                        </div>
+                        <div class="col-md-1">
+                            <a class="logout" href="" ng-click="logout()">Logout</a>
+                            <span>First Last</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                    <div class="detailform-1">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> 
+                                                <span class="detailitem">{{ticketDetail.id}}</span>
+                                                <div class="detaillabel">Customer ID</div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> 
+                                                <span class="detailitem">{{ticketDetail.contact_name}}</span>
+                                                <div class="detaillabel">Contact Name</div>    
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> 
+                                                <span class="detailitem">{{ticketDetail.contact_phone}}</span>
+                                                <div class="detaillabel">Contact Phone</div>    
+                                            </div>
+                                        </div> 
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> 
+                                                <span class="detailitem">{{ticketDetail.repName}}</span>
+                                                <div class="detaillabel">Rep Name</div>        
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> 
+                                                <span class="detailitem">{{ticketDetail.opened_date}}</span>
+                                                <div class="detaillabel">Open Date</div>        
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> 
+                                                <span class="detailitem">{{ticketDetail.resolved_date || 'N/A'}}</span>
+                                                <div class="detaillabel">Resolve Date</div>        
+                                            </div>
+                                        </div>                            
+                                    </div> 
+                                    <div class="detailform-2">
+                                        <did class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6"> 
+                                                <div class="detaillabel">Subject</div>
+                                                <span class="detailtext">{{ticketDetail.subject}}</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6"> 
+                                                <div class="detaillabel">Details</div> 
+                                                <span class="detailtext">{{ticketDetail.details}}</span>
+                                            </div>        
+                                        </div>
+                                    </div>   
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">                            
+                                                <div class="noteform">
+                                                    <span id="notelabel" placeholder="Enter your note here">Leave a note</span>
+                                                    <textarea id="note" class="form-control" rows="3"></textarea>
+                                                    <button ng-click="sendNote()" class="btn btn-lg btnNote" >Submit Note</button>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="row" nr-repeat="">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">                            
+                                                    <div class="notefield">
+                                                        <span>{{notes}}</span>
+                                                    </div>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

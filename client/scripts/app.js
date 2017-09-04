@@ -4,6 +4,7 @@ var myApp = angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
     'ui.bootstrap',
+    'ui.mask',
     'angular-storage',
     'myApp.filters',
     'myApp.services',
@@ -11,19 +12,13 @@ var myApp = angular.module('myApp', [
     'myApp.controllers'
 ]);
 ;/*config */
-myApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileProvider',
-    function ($routeProvider, $httpProvider, $locationProvider, $compileProvider){
+myApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileProvider', 'uiMask.ConfigProvider',
+    function ($routeProvider, $httpProvider, $locationProvider, $compileProvider, uiMaskConfigProvider){
 
-/*
-    $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {};
-    $httpProvider.defaults.headers.put = {};
-    $httpProvider.defaults.headers.patch = {};
-*/
     $routeProvider.
         when('/', {
-            templateUrl: 'content/tpl/home.html',
-            controller: 'HomeController',
+            templateUrl: 'content/tpl/ticketreports.html',
+            controller: 'TicketReportController',
             access: {restricted: true},
             reloadOnSearch: false
         }).when('/login', {
@@ -61,6 +56,12 @@ myApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileP
             controller: 'ErrorController',
             reloadOnSearch: false
         }); 
+
+        uiMaskConfigProvider.maskDefinitions({'A': /[a-z]/, '*': /[a-zA-Z0-9]/});
+        uiMaskConfigProvider.clearOnBlur(false);
+        uiMaskConfigProvider.eventsToHandle(['input', 'keyup', 'click']);
+
+
         $httpProvider.defaults.headers.common = {};
         $httpProvider.defaults.headers.post = {};
         $httpProvider.defaults.headers.put = {};
@@ -89,7 +90,7 @@ myApp.run(['$rootScope', '$window', '$route', '$log', '$location', '$timeout', '
                 var getUserStatusPromise = AuthenticationService.GetUserStatus();
                 getUserStatusPromise.then(
                 function (resp) {
-                    var isUserLoggedIn = resp.isLoggedIn;
+                    var isUserLoggedIn = resp;
                     console.log('at route change start. Next.access = ' + JSON.stringify(next.access));
                     console.log('isUserLoggedIn + ' + JSON.stringify(isUserLoggedIn));
                     if (next.access.restricted && !isUserLoggedIn){

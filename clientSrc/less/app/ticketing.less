@@ -1,23 +1,62 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:300,400,500,700');
 .ticketing{
     height:100%;
     width:100%;
     font-family:'Open Sans';
     font-size:16px;
+
+    /* do not group these rules*/
+    ::-webkit-input-placeholder { color: #cdcdcd; font-size:20px;}
+    :-moz-placeholder           { color: #cdcdcd; font-size:20px;}
+    ::-moz-placeholder          { color: #cdcdcd; font-size:20px;}
+    :-ms-input-placeholder      { color: #cdcdcd; font-size:20px;} 
+    .glyphicon                  { color: #bbb;}
     .toprow{
         height: 100%;
         .topcol{
             height:100%;
             padding:0px;
             width: 12%;
-
         }
+    }
+    .ticketing-frame{
+        padding:30px;
+        .ticketing-title{
+            font-size:45px;
+            font-family:'Roboto Condensed';
+            color:#6D8DB4;
+            font-weight:400;
+            margin-left: 80px;
+            #slim{
+                font-weight:300;
+            }
+        }
+        .ticketingform{
+            background-color:white;
+            padding:60px 30px;
+            margin-top:30px
+        }
+    }
+    .searchticket{
+        width:60%;
+        float: left;
+        input{
+            padding:22px 30px;
+        }
+        button{
+            padding:13px 13px;
+        }
+    }   
+    a.logout{
+        display: block;
+        color:#888;
     }
     background-color:#EBEEF2;
     @media (max-width:959px){
         margin-top:40px;
     }
 }
+
 menu{
     @media (min-width:960px){
         display:none;

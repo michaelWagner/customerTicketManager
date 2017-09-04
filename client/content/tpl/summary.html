@@ -1,0 +1,73 @@
+<div class="ticketing summary">
+    <menu></menu>
+    <div class="row row-offcanvas row-offcanvas-left toprow">
+        <div class="col-xs-0 col-md-2 sidebar-offcanvas topcol">  
+            <sidemenu></sidemenu>
+        </div>
+        <div class="col-xs-12 col-md-10">
+            <div class="ticketing-frame">
+                <div class="row">
+                    <div class="col-md-10">
+                        <span class="ticketing-title">Tickets - <span id="slim">SUMMARY</span></span>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="logout" href="" ng-click="logout()">Logout</a>
+                        <span>First Last</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+                        <div class="ticketingform nopad">
+                            <div class="row padded">
+                                <div class="col-md-8 formtitle">
+                                    <span>ACTION ITEMS</span>
+                                </div>
+                                <div class="col-md-4">
+                                    Hide Completed
+                                    <input id="boxy" type="checkbox" />
+                                    <label for="boxy"> </label>    
+                                </div>
+                            </div>
+                            <div class="row action" ng-repeat="item in [1,2,3]">
+                                <div class="col-md-12" ng-class-odd="'odd'" ng-class-even="'even'">
+                                    <input id="box{{item}}" type="checkbox" />
+                                    <label for="box{{item}}"> </label>
+                                    <span class="actionitem"> This is item number {{item}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="ticketingform">
+                            <div class="row">
+                                <div class="col-md-12 formtitle">
+                                <span>METRIC DATA</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="summaryitem">73</span>
+                                    <div class="summarylabel">No. of pending calls</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="summaryitem">6</span>
+                                    <div class="summarylabel">No. ready for approval</div>                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="summaryitem">14</span>
+                                    <div class="summarylabel">No. of reopened calls</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="summaryitem">1248</span>
+                                    <div class="summarylabel">No. of total tickets</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

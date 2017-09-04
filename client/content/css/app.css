@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:300,400,500,700');
 html,
 body {
   height: 100%;
@@ -14,7 +14,27 @@ body {
   width: 100%;
   font-family: 'Open Sans';
   font-size: 16px;
+  /* do not group these rules*/
   background-color: #EBEEF2;
+}
+.ticketing ::-webkit-input-placeholder {
+  color: #cdcdcd;
+  font-size: 20px;
+}
+.ticketing :-moz-placeholder {
+  color: #cdcdcd;
+  font-size: 20px;
+}
+.ticketing ::-moz-placeholder {
+  color: #cdcdcd;
+  font-size: 20px;
+}
+.ticketing :-ms-input-placeholder {
+  color: #cdcdcd;
+  font-size: 20px;
+}
+.ticketing .glyphicon {
+  color: #bbb;
 }
 .ticketing .toprow {
   height: 100%;
@@ -23,6 +43,38 @@ body {
   height: 100%;
   padding: 0px;
   width: 12%;
+}
+.ticketing .ticketing-frame {
+  padding: 30px;
+}
+.ticketing .ticketing-frame .ticketing-title {
+  font-size: 45px;
+  font-family: 'Roboto Condensed';
+  color: #6D8DB4;
+  font-weight: 400;
+  margin-left: 80px;
+}
+.ticketing .ticketing-frame .ticketing-title #slim {
+  font-weight: 300;
+}
+.ticketing .ticketing-frame .ticketingform {
+  background-color: white;
+  padding: 60px 30px;
+  margin-top: 30px;
+}
+.ticketing .searchticket {
+  width: 60%;
+  float: left;
+}
+.ticketing .searchticket input {
+  padding: 22px 30px;
+}
+.ticketing .searchticket button {
+  padding: 13px 13px;
+}
+.ticketing a.logout {
+  display: block;
+  color: #888;
 }
 @media (max-width: 959px) {
   .ticketing {
@@ -39,34 +91,131 @@ body {
     display: none;
   }
 }
-.newticket #newticket-frame {
-  padding: 30px;
-}
-.newticket #newticket-frame #new-ticket-title {
-  font-size: 45px;
-  font-family: 'Roboto Condensed';
-  color: #6D8DB4;
-  font-weight: 400;
-  margin-left: 80px;
-}
-.newticket #newticket-frame #new-ticket-title #slim {
-  font-weight: 300;
-}
-.newticket #newticket-frame .newform-1 {
+.newticket .newform-1 {
   background-color: white;
   padding: 60px 30px;
   margin-top: 30px;
 }
-.newticket #newticket-frame .newform-2 {
+.newticket .newform-2 {
   background-color: #F5F8FB;
   padding: 60px 30px;
 }
-.newticket #newticket-frame .btn.save-ticket {
+.newticket .btn.save-ticket {
   background-color: #0D8A71;
   color: white;
   font-family: 'Roboto Condensed';
   border-radius: 0px;
   margin-top: 30px;
+}
+.summary .summaryform {
+  background-color: white;
+  padding: 60px 30px;
+  margin-top: 30px;
+}
+.summary .ticketingform.nopad {
+  padding: 00px 00px;
+}
+.summary .padded {
+  padding-top: 60px;
+  padding-left: 30px;
+}
+.summary .formtitle {
+  font-size: 45px;
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+  color: #888;
+  padding-bottom: 30px;
+}
+.summary .summaryitem {
+  display: block;
+  text-align: center;
+  font-size: 45px;
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+  color: #ccc;
+}
+.summary .summarylabel {
+  text-align: center;
+}
+.summary .action {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.summary .action div {
+  padding: 15px 30px;
+}
+.summary .action .actionitem {
+  font-size: 22px;
+}
+.summary .odd {
+  background-color: #C4EAE9;
+  color: #1EADA8;
+}
+.summary .even {
+  color: #666;
+}
+.ticketing.ticketreports .headRow {
+  color: #333;
+  font-weight: bold;
+}
+.ticketing.ticketreports .reportitem {
+  color: #aaa;
+}
+.ticketing.ticketreports .dropdown-toggle {
+  background-color: white;
+  color: #888;
+  border-radius: 0px;
+  width: 75%;
+}
+.ticketing.ticketreports .dropdown-toggle ul li {
+  padding: 5px;
+}
+.ticketdetails #btnNewticket {
+  border-radius: 0px;
+  background-color: #0D8A71;
+  color: white;
+  margin-left: 20px;
+}
+.ticketdetails .detailform-1 {
+  background-color: white;
+  padding: 60px 30px;
+  margin-top: 30px;
+}
+.ticketdetails .detailform-2 {
+  background-color: #F5F8FB;
+  padding: 60px 30px;
+  margin-top: 30px;
+}
+.ticketdetails .detailitem {
+  display: block;
+  text-align: left;
+  font-size: 28px;
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+  color: #ccc;
+}
+.ticketdetails .detailtext {
+  display: block;
+  text-align: left;
+  font-size: 25px;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  color: #ccc;
+}
+.ticketdetails .detaillabel {
+  text-align: left;
+}
+.ticketdetails .noteform {
+  background-color: #F5F8FB;
+  padding: 60px 30px;
+  margin-top: 30px;
+}
+.ticketdetails #notelabel {
+  font-size: 30px;
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+  color: #ccc;
+  display: block;
 }
 .navbar-default {
   background-color: #50aaed;
@@ -149,7 +298,7 @@ sidemenu .sidemenu .menuframe {
 sidemenu .sidemenu .menuframe img {
   display: block;
   margin: auto;
-  width: 135px;
+  width: 150px;
   margin-bottom: 20px;
 }
 sidemenu .sidemenu .menuframe a {
@@ -189,6 +338,8 @@ sidemenu .sidemenu .menuframe a:focus {
   color: #fff;
   margin-top: 40px;
   padding: 20px 60px;
+  font-family: 'Roboto Condensed';
+  font-size: 24px;
 }
 .login input {
   font-size: 20px;

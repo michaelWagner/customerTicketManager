@@ -1,0 +1,121 @@
+<div class="ticketing ticketreports">
+    <menu></menu>
+    <div class="row row-offcanvas row-offcanvas-left toprow">
+        <div class="col-xs-0 col-md-2 sidebar-offcanvas topcol">  
+            <sidemenu></sidemenu>
+        </div>
+        <div class="col-xs-12 col-md-10">
+            <div class="ticketing-frame">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="ticketing-title">Tickets - <span id="slim">REPORTS</span></span>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="start" is-open="start.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"  ng-change="updateDate()"/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="openStart()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="end" is-open="end.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-change="updateEnd()"/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="openEnd()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="dropdown" uib-dropdown auto-close="outsideClick" on-toggle="toggled(open)">
+                            <a class="btn" uib-dropdown-toggle>Status</a>
+                            <ul class="dropdown-menu status-select" class="status-select"  uib-dropdown-menu>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" ng-click="updateStatus('pending')">
+                                                Pending
+                                            </input>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" ng-click="updateStatus('ready')">
+                                                Ready for Approval
+                                            </input>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" ng-click="updateStatus('resolved')">
+                                                Resolved
+                                            </input>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" ng-click="updateStatus('reopened')">
+                                                Re-opened
+                                            </input>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="logout" href="" ng-click="logout()">Logout</a>
+                        <span>First Last</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                        <div class="ticketingform">
+                            <table class="table table-hover">
+                                <tr class = "headRow" >
+                                    <td style="width:14.3%">
+                                        Ticket ID
+                                    </td>
+                                    <td style="width:14.3%">
+                                        Customer ID
+                                    </td>
+                                    <td style="width:14.3%">
+                                        Caller Name
+                                    </td>
+                                    <td style="width:14.3%">
+                                        Rep Name
+                                    </td>
+                                    <td style="width:14.3%">
+                                        Date Opened
+                                    </td>
+                                    <td style="width:14.3%">
+                                        Date Resolved
+                                    </td>
+                                    <td style="width:14.3%">
+                                        Status
+                                    </td>
+                                </tr>
+                                <tr class="reportitem" ng-repeat="ticket in tickets.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                                    <td ><a href="" ng-click='detail(ticket.id)'>{{ticket.id}}</a></td>
+                                    <td>{{ticket.customer}}</td>
+                                    <td>{{ticket.contact_name}}</td>
+                                    <td>{{ticket.rep}}</td>
+                                    <td>{{ticket.opened_date }}</td>
+                                    <td>{{ticket.resolved_date }}</td>
+                                    <td>{{ticket.status}}</td>
+                                </tr>   
+                            </table>
+                            <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="8" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

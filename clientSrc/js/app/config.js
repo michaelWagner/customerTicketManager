@@ -1,17 +1,11 @@
 /*config */
-myApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileProvider',
-    function ($routeProvider, $httpProvider, $locationProvider, $compileProvider){
+myApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileProvider', 'uiMask.ConfigProvider',
+    function ($routeProvider, $httpProvider, $locationProvider, $compileProvider, uiMaskConfigProvider){
 
-/*
-    $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {};
-    $httpProvider.defaults.headers.put = {};
-    $httpProvider.defaults.headers.patch = {};
-*/
     $routeProvider.
         when('/', {
-            templateUrl: 'content/tpl/home.html',
-            controller: 'HomeController',
+            templateUrl: 'content/tpl/ticketreports.html',
+            controller: 'TicketReportController',
             access: {restricted: true},
             reloadOnSearch: false
         }).when('/login', {
@@ -49,6 +43,12 @@ myApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileP
             controller: 'ErrorController',
             reloadOnSearch: false
         }); 
+
+        uiMaskConfigProvider.maskDefinitions({'A': /[a-z]/, '*': /[a-zA-Z0-9]/});
+        uiMaskConfigProvider.clearOnBlur(false);
+        uiMaskConfigProvider.eventsToHandle(['input', 'keyup', 'click']);
+
+
         $httpProvider.defaults.headers.common = {};
         $httpProvider.defaults.headers.post = {};
         $httpProvider.defaults.headers.put = {};

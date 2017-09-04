@@ -11,7 +11,7 @@ myAppC.controller('LoginController', ['$scope', '$location', '$rootScope', '$rou
             loginPromise.then(
                 function(payload){
 
-                    $location.path( "/" );
+                    $location.path( "/new" );
                 },
                 function(error){
                     console.log('failure logging in', error);
