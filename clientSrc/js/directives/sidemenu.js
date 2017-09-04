@@ -7,10 +7,11 @@ function($location) {
             scope.gotoDestination = function(destination){
                 $location.path(destination);
             }
+ 
         },
         controller: ['$scope', 
             function($scope){
-
+                $scope.isCollapsed = true;
             }
         ]        
     };

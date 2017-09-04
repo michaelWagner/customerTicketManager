@@ -14,6 +14,7 @@ body {
   width: 100%;
   font-family: 'Open Sans';
   font-size: 16px;
+  color: #B5BECB;
   /* do not group these rules*/
   background-color: #EBEEF2;
 }
@@ -42,17 +43,17 @@ body {
 .ticketing .toprow .topcol {
   height: 100%;
   padding: 0px;
-  width: 12%;
+  width: 16%;
 }
 .ticketing .ticketing-frame {
   padding: 30px;
 }
 .ticketing .ticketing-frame .ticketing-title {
-  font-size: 45px;
+  font-size: 30px;
   font-family: 'Roboto Condensed';
   color: #6D8DB4;
   font-weight: 400;
-  margin-left: 80px;
+  margin-left: 40px;
 }
 .ticketing .ticketing-frame .ticketing-title #slim {
   font-weight: 300;
@@ -81,7 +82,7 @@ body {
 }
 .ticketing a.logout {
   display: block;
-  color: #888;
+  color: #B5BECB;
 }
 @media (max-width: 959px) {
   .ticketing {
@@ -153,7 +154,7 @@ body {
   font-size: 45px;
   font-family: 'Roboto Condensed';
   font-weight: 300;
-  color: #ccc;
+  color: #B5BECB;
 }
 .summary .summarylabel {
   text-align: center;
@@ -173,14 +174,14 @@ body {
   color: #1EADA8;
 }
 .summary .even {
-  color: #666;
+  color: #B5BECB;
 }
 .ticketing.ticketreports .headRow {
-  color: #333;
+  color: #8395B1;
   font-weight: bold;
 }
 .ticketing.ticketreports .reportitem {
-  color: #aaa;
+  color: #B5BECB;
 }
 .ticketing.ticketreports .dropdown-toggle {
   background-color: white;
@@ -207,7 +208,7 @@ body {
   font-size: 28px;
   font-family: 'Roboto Condensed';
   font-weight: 300;
-  color: #ccc;
+  color: #B5BECB;
 }
 .ticketdetails .detailtext {
   display: block;
@@ -215,7 +216,7 @@ body {
   font-size: 25px;
   font-family: 'Open Sans';
   font-weight: 300;
-  color: #ccc;
+  color: #B5BECB;
 }
 .ticketdetails .detaillabel {
   text-align: left;
@@ -229,7 +230,7 @@ body {
   font-size: 30px;
   font-family: 'Roboto Condensed';
   font-weight: 300;
-  color: #ccc;
+  color: #B5BECB;
   display: block;
 }
 .ticketdetails .notefield {
@@ -336,7 +337,6 @@ sidemenu .sidemenu .menuframe a:focus {
   text-decoration: underline;
   background: #A9BAC3;
 }
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0d8a71+0,2d4b6d+100 */
 .login {
   color: #6D8DB4;
   background-image: url('/content/img/Login-BG.jpg');
@@ -376,100 +376,6 @@ sidemenu .sidemenu .menuframe a:focus {
   max-width: 400px;
   padding-top: 200px;
 }
-.admin {
-  width: 80%;
-  margin: auto;
-  margin-top: 75px;
-}
 .error.well {
   margin-top: 100px;
-}
-.modal-dialog .utl-dialog {
-  padding: 0px 10px;
-}
-.modal-dialog .utl-dialog p {
-  font-size: 14px;
-}
-.modal-dialog .utl-dialog input.form-control.suppress-duration {
-  display: inline;
-  margin-left: 20px;
-  width: 20%;
-}
-.modal-dialog .utl-dialog select.form-control.suppress-duration {
-  margin-left: 10px;
-  display: inline;
-  width: 20%;
-}
-.modal-dialog .utl-dialog button {
-  margin: 0px 10px;
-}
-.modal-dialog .utl-dialog p {
-  font-size: 1.5;
-}
-.modal-dialog .utl-dialog .vid-btn:hover {
-  background: white;
-  color: #50aaed;
-  cursor: pointer;
-}
-.modal-dialog .utl-dialog .vid-btn {
-  margin: 10px auto 40px;
-  transition: all .4s;
-  width: 45%;
-  text-align: center;
-  color: white;
-  font-size: 1.8rem;
-  font-weight: 400;
-  border: 2px solid #50aaed;
-  border-radius: 3px;
-  padding: 10px 25px;
-  background: #50aaed;
-}
-@media (max-width: 1025px) {
-  .modal-dialog .utl-dialog .vid-btn {
-    display: block;
-    width: 90%;
-    margin: 10px 15px;
-    padding: 3px 0px;
-  }
-}
-.modal-dialog .utl-dialog .pop-confirm-btns {
-  display: flex;
-  width: 100%;
-  margin: 40px 0 0 0;
-}
-.modal-dialog .utl-dialog #check-container {
-  width: 15%;
-  left: 35%;
-  margin: auto;
-}
-.modal-dialog .utl-dialog #blue-check-mark {
-  width: 50px;
-  height: 50px;
-}
-.modal-dialog .utl-dialog #secure-payment-img-in {
-  height: 25px;
-}
-.modal-dialog .utl-dialog #stripe-payment {
-  font-size: 24px;
-}
-.modal-dialog .utl-dialog .pop-confirm-info p {
-  padding: 10px;
-}
-.modal-dialog .utl-dialog #pop-confirm-wrap-p {
-  padding: 10px;
-  margin: -40px 0 0 0;
-  font-size: 1rem;
-}
-.modal-dialog .utl-dialog .fade.ng-hide-remove,
-.modal-dialog .utl-dialog .fade.ng-hide-add {
-  display: block !important;
-}
-.modal-dialog .utl-dialog .fade.ng-hide-remove {
-  transition: all linear 1000ms;
-}
-.modal-dialog .utl-dialog #detailtext {
-  font-size: 14px;
-  font-weight: normal;
-  resize: none;
-  overflow-y: scroll;
 }

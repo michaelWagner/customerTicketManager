@@ -7,7 +7,7 @@ function($scope, $location, $rootScope, $routeParams, store,  TicketingService, 
     $scope.text = '';
     $scope.rep = '1';
     $scope.date = moment().format("YYYY-MM-DDThh:mm:ss.882824Z");
-
+    
     $scope.getTicketDetail = function(){
         var localTickets = (typeof($scope.summary) !== 'undefined') ? $scope.summary : '';
         var ticketsPromise = TicketingService.GetTicketDetail($scope.ticket);

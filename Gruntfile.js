@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-   
+
     develop: {
       server: {
         file: 'bin/www'
@@ -51,13 +51,13 @@ module.exports = function (grunt) {
     // Compile LESS (.less) files to CSS (.css).
     less: {
         options : { 'dumpLineNumbers' : grunt.option('lessDumpLineNumbers') || false },
-        devComp: { 
+        devComp: {
             files   : { 'client/content/css/comp.css' : 'clientSrc/less/comp.less' }
         },
         devBase: {
             files   : { 'client/content/css/base.css' : 'clientSrc/less/base.less' }
         },
-        devApp: { 
+        devApp: {
             files   : { 'client/content/css/app.css' : 'clientSrc/less/app.less' }
         },
         prod: {
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
     // Concatinationg JS files
     concat: {
         // RE-USE
-        libsList: [            
+        libsList: [
             'clientSrc/js/lib/jquery/jquery.js',
             'clientSrc/js/lib/lodash/lodash.js',
             'clientSrc/js/lib/moment/moment.js',
@@ -102,6 +102,7 @@ module.exports = function (grunt) {
             'clientSrc/js/lib/angular/angular-storage.js',
             'clientSrc/js/lib/angular/angular-cookies.js',
             'clientSrc/js/lib/angular-ui/mask.js',
+            'clientSrc/js/lib/multiselect/angularjs-dropdown-multiselect.js',
             'clientSrc/js/lib/bootstrap/bootstrap.js',
             'clientSrc/js/lib/ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js'
         ],
@@ -115,7 +116,8 @@ module.exports = function (grunt) {
   	        'clientSrc/js/lib/angular/angular-storage.min.js',
             'clientSrc/js/lib/angular/angular-cookies.min.js',
             'clientSrc/js/lib/angular-ui/mask.min.js',
-            'clientSrc/js/lib/bootstrap/bootstrap.min.js',
+            'clientSrc/js/lib/multiselect/angularjs-dropdown-multiselect.min.js',
+            'clientSrc/js/lib/bootstrap/bootstrap.js',
             'clientSrc/js/lib/ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js'
 
         ],
@@ -175,15 +177,13 @@ module.exports = function (grunt) {
                 "max_processes": 5
             }
         }
-    },    
+    },
     watch: {
         css: {
             files: ['clientSrc/less/*.less',
                     'clientSrc/less/app/*.less',
-                    'clientSrc/less/app/suits/*.less',
                     'clientSrc/less/base/*.less',
-                    'clientSrc/less/comp/*.less',
-                    'clientSrc/less/suits/*.less'],
+                    'clientSrc/less/comp/*.less'],
             tasks : ['less:devComp',
                      'less:devBase',
                      'less:devApp']
@@ -191,20 +191,20 @@ module.exports = function (grunt) {
 
         // Images, copy
         files: {
-            files: ['clientSrc/html/*.html', 
-                    'clientSrc/tpl/*.html', 
-                    'clientSrc/tpl/*/*.html', 
+            files: ['clientSrc/html/*.html',
+                    'clientSrc/tpl/*.html',
+                    'clientSrc/tpl/*/*.html',
                     'clientSrc/json/*.json'],
             tasks : ['copy:dev']
         },
-            
+
         js: {
             files: ['clientSrc/js/app/*.js',
-                    'clientSrc/js/controllers/*.js', 
-                    'clientSrc/js/directives/*.js', 
-                    'clientSrc/js/filters/*.js', 
-                    'clientSrc/js/services/*.js', 
-                    'clientSrc/js/lib/*.js' 
+                    'clientSrc/js/controllers/*.js',
+                    'clientSrc/js/directives/*.js',
+                    'clientSrc/js/filters/*.js',
+                    'clientSrc/js/services/*.js',
+                    'clientSrc/js/lib/*.js'
                     ],
             tasks : ['concat:devA',
                     'concat:devC',
@@ -247,7 +247,7 @@ grunt.loadNpmTasks('grunt-angular-templates');
         //'express:dev',
         //'develop',
         'watch'
-        
+
     ]);
 
     /* PROD: Compile and export for production deployment
@@ -263,7 +263,7 @@ grunt.loadNpmTasks('grunt-angular-templates');
         'concat:prod',
         'closurecompiler:prod',
         'clean:temp',
-        //'express:prod',        
+        //'express:prod',
         //'develop',
         //'watch'
     ]);

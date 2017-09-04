@@ -2,7 +2,11 @@
     <div class="menuframe">
         <img src="/content/img/DunderMifflinLogo-Light.svg">
         <a class="" href="/summary">Summary</a>
-        <a class="" href="/tickets">Tickets</a>
-        <a class="" href="/new">New Ticket</a>
+        <a class="" href="" ng-click="isCollapsed = !isCollapsed">Tickets <i class="glyphicon glyphicon-triangle-bottom"></i></a>
+		<div uib-collapse="isCollapsed">
+            <a class="" href="/tickets" ng>Reports</a> 
+            <a class="" href="/new">New</a>
+        </div>
     </div>
 </div>
+

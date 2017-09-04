@@ -24,15 +24,15 @@
                                 </div>
                                 <div class="col-md-4">
                                     Hide Completed
-                                    <input id="boxy" type="checkbox" />
+                                    <input id="boxy" type="checkbox" ng-checked="hideCompleted" ng-click="toggleHide()"/>
                                     <label for="boxy"> </label>    
                                 </div>
                             </div>
-                            <div class="row action" ng-repeat="item in [1,2,3]">
+                            <div class="row action" ng-repeat="item in ticketing.actionItems | filter:(item.is_complete && hideCompleted)">
                                 <div class="col-md-12" ng-class-odd="'odd'" ng-class-even="'even'">
-                                    <input id="box{{item}}" type="checkbox" />
-                                    <label for="box{{item}}"> </label>
-                                    <span class="actionitem"> This is item number {{item}}</span>
+                                    <input id="box{{item.id}}" type="checkbox"  ng-click="markComplete(item.id)"/>
+                                    <label for="box{{item.id}}"> </label>
+                                    <span class="actionitem"> {{item.description}}</span>
                                 </div>
                             </div>
                         </div>
@@ -46,21 +46,21 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <span class="summaryitem">73</span>
+                                    <span class="summaryitem">{{ticketing.summary.pending}}</span>
                                     <div class="summarylabel">No. of pending calls</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <span class="summaryitem">6</span>
+                                    <span class="summaryitem">{{ticketing.summary.approval}}</span>
                                     <div class="summarylabel">No. ready for approval</div>                                    
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <span class="summaryitem">14</span>
+                                    <span class="summaryitem">{{ticketing.summary.reopened_calls}}</span>
                                     <div class="summarylabel">No. of reopened calls</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <span class="summaryitem">1248</span>
+                                    <span class="summaryitem">{{ticketing.summary.total}}</span>
                                     <div class="summarylabel">No. of total tickets</div>
                                 </div>
                             </div>
