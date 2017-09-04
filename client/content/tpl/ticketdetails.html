@@ -14,10 +14,10 @@
                             <div class="input-group searchticket">
                                 <input class="form-control" type="text" ng-model="searchitem"  placeholder="Search for Ticket ID" />
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="search(searchitem)"><i class="glyphicon glyphicon-search"></i></button>
+                                    <button type="button" class="btn btn-default" ng-click="searchTickets(searchitem)"><i class="glyphicon glyphicon-search"></i></button>
                                 </span>
                             </div>
-                            <button id="btnNewticket" class="btn btn-lg">New Ticket</button>                            
+                            <button class="btn btn-lg btn-newticket" ng-click="newTicket()">New Ticket</button>                            
                         </div>
                         <div class="col-md-1">
                             <a class="logout" href="" ng-click="logout()">Logout</a>

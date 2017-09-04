@@ -63,6 +63,7 @@ body {
   margin-top: 30px;
 }
 .ticketing .searchticket {
+  font-size: 20px;
   width: 60%;
   float: left;
 }
@@ -71,6 +72,12 @@ body {
 }
 .ticketing .searchticket button {
   padding: 13px 13px;
+}
+.ticketing .btn-newticket {
+  border-radius: 0px;
+  background-color: #0D8A71;
+  color: white;
+  margin-left: 20px;
 }
 .ticketing a.logout {
   display: block;
@@ -90,6 +97,20 @@ body {
   sidemenu {
     display: none;
   }
+}
+.newticket input {
+  padding: 20px 30px;
+}
+.newticket .searchticketform {
+  float: none;
+  width: 90%;
+}
+.newticket .searchticketform input {
+  padding: 22px 30px;
+}
+.newticket .searchticketform button {
+  font-size: 18px;
+  padding: 10px 10px;
 }
 .newticket .newform-1 {
   background-color: white;
@@ -169,12 +190,6 @@ body {
 }
 .ticketing.ticketreports .dropdown-toggle ul li {
   padding: 5px;
-}
-.ticketdetails #btnNewticket {
-  border-radius: 0px;
-  background-color: #0D8A71;
-  color: white;
-  margin-left: 20px;
 }
 .ticketdetails .detailform-1 {
   background-color: white;

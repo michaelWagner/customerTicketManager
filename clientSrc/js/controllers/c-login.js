@@ -15,7 +15,8 @@ myAppC.controller('LoginController', ['$scope', '$location', '$rootScope', '$rou
                 },
                 function(error){
                     console.log('failure logging in', error);
-                    $scope.message = ErrorHandlingService.getMessage(error);
+
+                    $scope.message = 'Login failed';
                 }
             );
         };

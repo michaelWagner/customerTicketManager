@@ -19,14 +19,28 @@ function($scope, $location, $rootScope, $routeParams, store,  TicketingService, 
             }
         ); 
     }
+
+    $scope.newTicket = function(){
+        window.location.href = '/new';
+    }
+
     $scope.logout = function(){
         AuthenticationService.Logout();
     }
-
-    $scope.search = function(item){
-        var tickets = store.get('tickets');
-        
-        console.log('search for ' + item);
+    $scope.searchTickets = function(item){
+        if(item){
+            var tickets = store.get('tickets');
+            var index = _.findIndex(tickets, function(t) { 
+                return t.id.toString() === item; 
+            });
+            if(index > 0){
+                window.location.href = '/tickets/' +  tickets[index].id;
+            } else {
+                console.log('not found ' );
+            }
+        } else {
+            console.log('nothing here');
+        }
     }
 
     $scope.getTicketDetail();
