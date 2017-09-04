@@ -75,15 +75,15 @@
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">                            
                                                 <div class="noteform">
                                                     <span id="notelabel" placeholder="Enter your note here">Leave a note</span>
-                                                    <textarea id="note" class="form-control" rows="3"></textarea>
-                                                    <button ng-click="sendNote()" class="btn btn-lg btnNote" >Submit Note</button>
+                                                    <textarea id="note" ng-model="note" class="form-control" rows="3"></textarea>
+                                                    <button ng-click="submitNote()" class="btn btn-lg btnNote" >Submit Note</button>
                                                 </div>  
                                             </div>
                                         </div>
-                                        <div class="row" nr-repeat="">
+                                        <div class="row" ng-repeat="note in ticketDetail.notes">
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">                            
                                                     <div class="notefield">
-                                                        <span>{{notes}}</span>
+                                                        <span>{{note.text}}</span>
                                                     </div>  
                                                 </div>
                                             </div>
