@@ -40,6 +40,11 @@ body {
 .ticketing .toprow {
   height: 2000px;
 }
+@media (max-width: 959px) {
+  .ticketing .toprow {
+    height: 0px;
+  }
+}
 .ticketing .toprow .topcol {
   height: 2000px;
   padding: 0px;

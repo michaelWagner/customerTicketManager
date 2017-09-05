@@ -5,7 +5,9 @@ function($scope, $location, $rootScope, $routeParams, AuthenticationService, Tic
     $scope.end = new Date();
 
     $scope.status = {};
-    
+    $scope.$watch('start', function(start){
+        console.log(start);
+    });
     $scope.status.pending = false;
     $scope.status.ready = false;
     $scope.status.resolved = false;

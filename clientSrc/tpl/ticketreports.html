@@ -27,47 +27,17 @@
                         </p>
                     </div>
                     <div class="col-md-2">
-                        <div class="dropdown" uib-dropdown auto-close="outsideClick" on-toggle="toggled(open)">
-                            <a class="btn" uib-dropdown-toggle>Status</a>
-                            <ul class="dropdown-menu status-select" class="status-select"  uib-dropdown-menu>
-                                <li>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" ng-click="updateStatus('pending')">
-                                                Pending
-                                            </input>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" ng-click="updateStatus('ready')">
-                                                Ready for Approval
-                                            </input>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" ng-click="updateStatus('resolved')">
-                                                Resolved
-                                            </input>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" ng-click="updateStatus('reopened')">
-                                                Re-opened
-                                            </input>
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <multiselect 
+                            class="input-xlarge multiselect" 
+                            ng-model="vm.option1" 
+                            options="p.key as p.value for p in vm.options1" select-limit="5"
+                            header="Select Stuff1" 
+                            selected-header="options selected" 
+                            multiple="true" 
+                            required enable-filter="false" 
+                            filter-placeholder="Filter stuff..">
+                        </multiselect>
+                        
                     </div>
                     <div class="col-md-2">
                         <a class="logout" href="" ng-click="logout()">Logout</a>

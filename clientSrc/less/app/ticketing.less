@@ -9,16 +9,19 @@
     ::-webkit-input-placeholder { color: #cdcdcd; font-size:20px;}
     :-moz-placeholder           { color: #cdcdcd; font-size:20px;}
     ::-moz-placeholder          { color: #cdcdcd; font-size:20px;}
-    :-ms-input-placeholder      { color: #cdcdcd; font-size:20px;}
+    :-ms-input-placeholder      { color: #cdcdcd; font-size:20px;} 
     .glyphicon                  { color: #bbb;}
     .toprow{
         height: 2000px;
+        @media(max-width:959px){
+            height:0px;
+        }
         .topcol{
             height:2000px;
             padding:0px;
             width: 16%;
-            @media (max-width: 959px) {
-              height: 0px;
+            @media(max-width:959px){
+                height:0px;
             }
         }
     }
@@ -50,13 +53,13 @@
         button{
             padding:13px 13px;
         }
-    }
+    } 
     .btn-newticket{
         border-radius:0px;
         background-color: #0D8A71;
         color:white;
         margin-left:20px;
-    }
+    }  
     a.logout{
         display: block;
         color:#B5BECB;
@@ -70,7 +73,7 @@
 menu{
     @media (min-width:960px){
         display:none;
-    }
+    }   
 }
 sidemenu{
     @media (max-width:959px){

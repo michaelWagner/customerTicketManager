@@ -5,6 +5,7 @@ var myApp = angular.module('myApp', [
     'ngAnimate',
     'ui.bootstrap',
     'ui.mask',
+    'long2know',
     'angular-storage',
     'myApp.filters',
     'myApp.services',
