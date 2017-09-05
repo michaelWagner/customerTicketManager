@@ -39,3 +39,4 @@ TODOS:
 * Filter tickets.
 * There is a db error preventing new notes from being saved.
 * Summary data is currently mocked due to an API error.
+* Show status colors on report page.
