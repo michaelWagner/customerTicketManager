@@ -3,16 +3,21 @@ myAppC.controller('TicketReportsController', ['$scope', '$location', '$rootScope
 function($scope, $location, $rootScope, $routeParams, AuthenticationService, TicketingService, ErrorHandlingService) {
     $scope.start = new Date();
     $scope.end = new Date();
+    
+    $scope.statusOptions = [ {"key": "pending", "value": false}, {"key":"ready", "value":false}, {"key":"resolved", "value":false}, {"key":"reopened",  "value":false}];    
+    $scope.statuses = []
 
-    $scope.status = {};
     $scope.$watch('start', function(start){
         console.log(start);
     });
-    $scope.status.pending = false;
-    $scope.status.ready = false;
-    $scope.status.resolved = false;
-    $scope.status.reopened = false;
 
+    $scope.$watch('end', function(end){
+        console.log(end);
+    });
+
+    $scope.$watch('statusOptions', function(statusOptions){
+        console.log(statusOptions);
+    });
 
     $scope.currentPage = 2;
     $scope.itemsPerPage = 10;

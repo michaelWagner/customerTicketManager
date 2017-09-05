@@ -29,8 +29,8 @@
                     <div class="col-md-2">
                         <multiselect 
                             class="input-xlarge multiselect" 
-                            ng-model="vm.option1" 
-                            options="p.key as p.value for p in vm.options1" select-limit="5"
+                            ng-model="statusOptions.value" 
+                            options="s.value as s.key for s in statusOptions" select-limit="5"
                             header="Select Stuff1" 
                             selected-header="options selected" 
                             multiple="true" 
