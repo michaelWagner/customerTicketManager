@@ -21,9 +21,6 @@ Clone repo from your console:
 To build this project:
 cd to project directory and run:
 
-### `bower install grunt`
-
-then,
 ### `npm install`
 
 then,
