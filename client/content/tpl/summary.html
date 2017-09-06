@@ -28,9 +28,9 @@
                                     <label for="boxy"> </label>    
                                 </div>
                             </div>
-                            <div class="row action" ng-repeat="item in ticketing.actionItems | filter:(item.is_complete && hideCompleted)">
+                            <div class="row action" ng-repeat="item in ticketing.actionItems" ng-hide="item.is_complete && hideCompleted">
                                 <div class="col-md-12" ng-class-odd="'odd'" ng-class-even="'even'">
-                                    <input id="box{{item.id}}" type="checkbox"  ng-click="markComplete(item.id)"/>
+                                    <input id="box{{item.id}}" type="checkbox"  ng-model="item.is_complete"/>
                                     <label for="box{{item.id}}"> </label>
                                     <span class="actionitem"> {{item.description}}</span>
                                 </div>

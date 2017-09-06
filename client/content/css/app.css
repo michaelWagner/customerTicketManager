@@ -180,11 +180,17 @@ body {
   font-size: 22px;
 }
 .summary .odd {
-  background-color: #C4EAE9;
-  color: #1EADA8;
+  background-color: #F3F7FB;
+  color: #818790;
 }
 .summary .even {
-  color: #B5BECB;
+  background-color: #ffffff;
+  color: #818790;
+}
+.summary .odd:hover,
+.summary .even:hover {
+  background-color: #BCE7E6;
+  color: #14A39E;
 }
 .ticketing.ticketreports .headRow {
   color: #8395B1;
@@ -247,6 +253,15 @@ body {
   margin-top: 10px;
   background-color: #D8DEE5;
   padding: 20px 30px;
+}
+.ticketdetails .btnNote {
+  margin-top: 30px;
+  color: #FEFEFE;
+  background-color: #6281AD;
+  border-radius: 0px;
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+  font-size: 24px;
 }
 .navbar-default {
   background-color: #6D8DB4;
@@ -340,6 +355,8 @@ sidemenu .sidemenu .menuframe a {
   display: block;
   text-align: center;
   padding: 20px 60px;
+  font-size: 24px;
+  font-family: 'Roboto Condensed';
 }
 sidemenu .sidemenu .menuframe a:hover,
 sidemenu .sidemenu .menuframe a:focus {

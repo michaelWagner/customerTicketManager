@@ -1,27 +1,17 @@
 
-myAppC.controller('TicketReportsController', ['$scope', '$location', '$rootScope', '$routeParams',  'AuthenticationService', 'TicketingService', 'ErrorHandlingService',
-function($scope, $location, $rootScope, $routeParams, AuthenticationService, TicketingService, ErrorHandlingService) {
-    $scope.start = new Date();
-    $scope.end = new Date();
+myAppC.controller('TicketReportsController', ['$scope', '$location', '$rootScope', '$routeParams', 'store', 'AuthenticationService', 'TicketingService', 'ErrorHandlingService',
+function($scope, $location, $rootScope, $routeParams, store, AuthenticationService, TicketingService, ErrorHandlingService) {
+    $scope.start = moment().subtract(90, 'days').toDate();;
+    $scope.end = moment().add(1, 'days').toDate();;
     
-    $scope.statusOptions = [ {"key": "pending", "value": false}, {"key":"ready", "value":false}, {"key":"resolved", "value":false}, {"key":"reopened",  "value":false}];    
-    $scope.statuses = []
+    //$scope.statusOptions = [ {"key": "pending", "value": false}, {"key":"ready", "value":false}, {"key":"resolved", "value":false}, {"key":"reopened",  "value":false}];    
+    $scope.statusOptions = [ {"key": "pending", "value": "pending"}, {"key":"ready", "value":"ready_for_approval"}, {"key":"resolved", "value":"resolved"}, {"key":"reopened",  "value":"reopened"}];    
+    $scope.statuses = ['pending', 'ready_for_approval', 'resolved', 'reopened']
 
-    $scope.$watch('start', function(start){
-        console.log(start);
-    });
-
-    $scope.$watch('end', function(end){
-        console.log(end);
-    });
-
-    $scope.$watch('statusOptions', function(statusOptions){
-        console.log(statusOptions);
-    });
 
     $scope.currentPage = 2;
     $scope.itemsPerPage = 10;
-    $scope.maxSize = 10; //Number of pager buttons to show
+    $scope.maxSize = 10;
   
     $scope.setPage = function (pageNo) {
       $scope.currentPage = pageNo;
@@ -33,7 +23,19 @@ function($scope, $location, $rootScope, $routeParams, AuthenticationService, Tic
         var ticketsPromise = TicketingService.GetTickets();
         ticketsPromise.then(
             function(payload) { 
-                $scope.tickets =  payload.results;
+                var tempTickets =  payload.results;
+                tempTickets = _.filter(tempTickets, function(t){ 
+                    return moment(t.opened_date)  >  moment($scope.start);
+                });
+                tempTickets = _.filter(tempTickets, function(t){ 
+                    return moment(t.opened_date)  <  moment($scope.end);
+                });
+  
+                tempTickets = _.filter(tempTickets, function(t){ 
+                    return _.includes($scope.statuses, t.status);
+                }); 
+
+                $scope.tickets = tempTickets;
                 $scope.totalItems = $scope.tickets.length;
                 $scope.status = 'success';
             },
@@ -57,24 +59,14 @@ function($scope, $location, $rootScope, $routeParams, AuthenticationService, Tic
     $scope.openStart = function() {
         $scope.start.opened = true;
       };
-    
-    $scope.togglePending = function(){
-        $scope.status.pending = !$scope.status.pending
-
-    }
-    $scope.toggleReady = function(){
-        $scope.status.ready = !$scope.status.ready
-    }
-    $scope.toggleResolved = function(){
-        $scope.status.resolved = !$scope.status.resolved
-    }
-    $scope.toggleReopened= function(){
-        $scope.status.reopened = !$scope.status.reopened
-    }
 
     $scope.openEnd = function() {
         $scope.end.opened = true;
     };
-    $scope.getTickets();
+
+    $scope.getFilteredTickets = function(){
+        console.log($scope.statuses);
+        $scope.getTickets();
+    }
 }
 ]);
